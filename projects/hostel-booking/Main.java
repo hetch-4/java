@@ -23,7 +23,7 @@ class Main{
             System.out.println("4.View Booking History");
             System.out.println("5.Exit");
             System.out.println("\nChoose an option: ");
-
+            
             int choice;
             try{
                 choice = scanner.nextInt();
@@ -62,6 +62,8 @@ class Main{
                         System.out.println("Enter User ID:");
                         int user = scanner.nextInt();
                         hostel.bookRoom(room,vin,vout,user);
+                       // hostel.removeRoom(new Room(room,vin,vout,user));
+                       System.out.println(hostel.getRoom(101));
             
                     }catch (Exception e){
                         System.out.println("Invalid date format.Please use YYYY-MM-DD.");
@@ -122,6 +124,10 @@ class Room{
     public double getPrice(){
         return price;
     }
+    public String displayRoomDetails(){
+        System.out.println(getRoomNo()+" "+getCapacity()+" "+getType()+" "+getPrice());
+        return getRoomNo()+" "+getCapacity()+" "+getType()+" "+getPrice();
+    }
 }
 
 //booking class 
@@ -178,6 +184,18 @@ class Hostel{
     void removeRoom(Room room){
         rooms.remove(room);
     }
+    public Room getRoom(int n){
+        for(Room room:rooms){
+            int vroom = room.getRoomNo();
+            if(vroom == n){
+                return room;
+            }
+            else{
+                break;
+            }
+        }
+        return null;
+    }
     //Check for available rooms
     public void viewAvailableRooms(LocalDate checkin, LocalDate checkout){
         System.out.println("Available Rooms from "+checkin+" to "+checkout+":");
@@ -201,6 +219,10 @@ class Hostel{
         }
         return true;
     }
+    //method to remove room
+    //public boid removeRoom(int roomNum,LocalDate checkin,LocalDate checkout,int userId){
+
+    //}
     //Method to Book a room 
     public void bookRoom(int roomNum, LocalDate checkIn, LocalDate checkout,int userId){
         if (checkout.isBefore(checkIn) || checkout.isEqual(checkIn)){
