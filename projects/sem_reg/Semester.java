@@ -48,15 +48,16 @@ class Semester{
         return null;
     }
 
-    public Course getCourse(int index){
+    public Course getCourse(String index){
         for(Course course:availableCourses){
             //each couse code in available courses
-            int j = availableCourses[index];
+            String j = course.getCourseCode();
             //System.out.println(j+":"+iot);
             try{
-                if(j){
+                if(j.equals(index)){
                 System.out.println("Course found!");
-                System.out.println(course.getCourseCode());
+                System.out.println(course.display());
+
                 return course;
                 }
             }    
@@ -123,5 +124,10 @@ class Course extends Semester{
     }
     public void reduceCapacity(){
         this.capacity -= 1;
+    }
+
+    public String display(){
+        System.out.println("Course Code:"+courseCode+"\ntitle: "+title+"\nInstructor:"+instructor+"\nTime:"+time+"Capcity:"+capacity);
+        return null;
     }
 }

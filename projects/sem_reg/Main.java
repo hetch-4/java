@@ -2,9 +2,9 @@ import java.util.*;
 
 class main{
     public static void main(String [] args){
-        Scanner scanner = new Scanner(System.in);
-
         Semester sem01 = new Semester();
+
+        Scanner scanner = new Scanner(System.in);
 
         Course c1 = new Course("AMA 4102","Algebra","Jabuya",3,60);
         Course c2 = new Course("AMA 4231","Calculus","John",3,34);
@@ -17,7 +17,6 @@ class main{
         sem01.availCourse(c4);
 
         Student student01 = new Student(101,"Mark Githiji");
-
 
         boolean run= true;
         while(run){
@@ -44,9 +43,13 @@ class main{
                         //Show available slots to add course
                         System.out.println("Availble free slots, to add course:- "+student01.getAvailableSlots());
                     }else if(choice0==2){
-                        //student register for a course
+                        //input course of choice
                         try{
-                            student01.registerCourse();
+                            System.out.println("Enter Course code");
+                            String cChoice = scanner.nextLine();
+                            System.out.println(cChoice);
+                            Course crs1 = sem01.getCourse(cChoice);
+                            System.out.println(crs1);
                         }catch(Exception e){
                             System.out.println(e);
                         }
@@ -81,7 +84,7 @@ class main{
                         //view schedule
                     }else if(choice1==2){
                         //print student registered courses dashboard
-
+                        
                     }else if(choice1==3){
                         //drop a course from student dashboard
                     }else if(choice1==99){
@@ -98,6 +101,7 @@ class main{
 
             }
         }
+                            
     }
 }
 class Semester{
@@ -207,7 +211,8 @@ class Course extends Semester{
         return null;
     }
 }
-class Student extends Semester{
+
+class Student{
     //attributes 
     //student id, name,registered courses
     private int id;
@@ -248,17 +253,7 @@ class Student extends Semester{
         }
     }
     //register course,drop course,view schedule
-    public void registerCourse(){
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Enter Course Code:");
-        String cChoice = scanner.nextLine();
-        Semester s01 = new Semester();
-        Course crs01 = s01.getCourse(cChoice);
-        System.out.println(crs01);
-        addCourse(crs01);
-        //crs01.display();
-        System.out.println("Successfully registered for"+)
-    }
+
     public int getAvailableSlots(){
         return 8 - registeredCourses.size();
     }
