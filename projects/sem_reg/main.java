@@ -52,9 +52,7 @@ class main{
                         }
                         
                         //add to student dashboard
-                        //student01.addCourse(cChoice);
-                        //System.out.println("Succesfully registered "+sem01(cChoice));
-                        //sem01
+                       
 
                     }else if(choice0==3){
                         //view display of student schedule
@@ -104,7 +102,7 @@ class Semester{
     //attributes 
     //List of available courses
     List<Course> availableCourses = new ArrayList<>();
-     
+    
     //methods
     //adding course,viewing available courses,
     public void availCourse(Course course){
@@ -257,7 +255,7 @@ class Student extends Semester{
         System.out.println(crs01);
         addCourse(crs01);
         //crs01.display();
-        System.out.println("Successfully registered for"+)
+        System.out.println("Successfully registered for"+crs01);
     }
     public int getAvailableSlots(){
         return 8 - registeredCourses.size();
