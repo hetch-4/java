@@ -52,6 +52,7 @@ class Main{
 
           //add task to storage
           storage.add(task);
+
           System.out.println("New task created."+ task + storage);
               break;
 
@@ -72,6 +73,9 @@ class Main{
           int  editNo = scanner.nextInt();
           scanner.nextLine();
 
+          //remove task 
+          storage.remove(editNo);
+
           //from user input get task to be edited
           System.out.println(storage.get(editNo));
           System.out.println("Enter Description");
@@ -87,11 +91,34 @@ class Main{
           String inputDate = scanner.nextLine();
 
           //update input from user
-          System.out.println(storage[editNo].description);
+          Task task1 = new Task(inputDesc,inputTime,inputDate);
+          storage.add(task1);
+
+          System.out.println(storage);
           break;
         case 3:
           System.out.println("Delete task");
 
+                    System.out.println("Edit Task");
+          System.out.println("choose Task");
+          
+          //loop through storage to check for task
+          Iterator<Task> it = storage.iterator();
+
+          int b =1;
+          while(it.hasNext()){
+            System.out.println(b +".  " + it.next());
+            b++;
+          }
+
+          //take input from user
+          int  editN = scanner.nextInt();
+          scanner.nextLine();
+
+          //remove task 
+          storage.remove(editN);
+
+          System.out.println(storage);
           break;
         case 4:
           System.out.println("Exiting ...");
@@ -102,7 +129,7 @@ class Main{
       }
       
       i++;
-    }while(i<1);
+    }while(i<3);
 
   }
 }
@@ -121,30 +148,26 @@ class Task{
 
   void addTask(ArrayList storage,Task task){
     //add task
-    // if(storage.contains(task))
-    //else storage.push(task)
+    if(storage.contains(task)){
+      System.out.println("Task already present");
+    }
+    else {
+      storage.add(task);
+
+    }
   }
 
-  void deleteTask(){
-    //remove task
-    //if(storage.contains(task)) remove task
-    //else return not found
-  }
 
-  void editTask(){
-    //edit task
-    //storage.search(task)
-    // if found  return task 
-    // delete storage(task)
-    // edit task 
-    // add task () 
-  
+  void editTask(String desc, String time, String date){
+    this.description = desc;
+    this.time = time;
+    this.date = date;
   }
 
   public String toString(){
     //display the class in form of string
     return "Description :" + description +
-      "\nTime : "+time+"date : " +date;
+      "\nTime : "+time+"date : " +date+"\n";
   
   }
 
