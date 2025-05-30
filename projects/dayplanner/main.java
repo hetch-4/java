@@ -5,7 +5,7 @@ class Main{
   public static void main(String [] args){
     System.out.println("Hello world!");
 
-    HashSet <Task> storage = new HashSet<Task>();
+    ArrayList <Task> storage = new ArrayList<Task>();
 
     //dummy Task to add to storage
     Task b1 = new Task("cook","12 am","23");
@@ -72,7 +72,22 @@ class Main{
           int  editNo = scanner.nextInt();
           scanner.nextLine();
 
-          System.out.println(storage[0]);
+          //from user input get task to be edited
+          System.out.println(storage.get(editNo));
+          System.out.println("Enter Description");
+          //description input from user
+          String inputDesc = scanner.nextLine();
+
+          System.out.println("Enter Time");
+          //time input from user
+          String inputTime = scanner.nextLine();
+
+          System.out.println("Enter Date");
+          //date input from user
+          String inputDate = scanner.nextLine();
+
+          //update input from user
+          System.out.println(storage[editNo].description);
           break;
         case 3:
           System.out.println("Delete task");
@@ -128,8 +143,8 @@ class Task{
 
   public String toString(){
     //display the class in form of string
-    return "Description :\n" + description +
-      "\nTime : "+time+"\ndate : " +date;
+    return "Description :" + description +
+      "\nTime : "+time+"date : " +date;
   
   }
 
