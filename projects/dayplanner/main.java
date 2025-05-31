@@ -24,6 +24,9 @@ class Main{
 
     int i =0;
     String description,date,time;
+
+    boolean lim = true;
+    
     do{
       System.out.println("Menu:- \n");
       System.out.println("1. Add Task\n2. Edit Task\n3. Remove Task\n4. exit");
@@ -31,7 +34,7 @@ class Main{
       int choice = scanner.nextInt();
       scanner.nextLine();
 
-      boolean lim = true;
+      
       System.out.println(choice);
 
       
@@ -122,6 +125,7 @@ class Main{
           break;
         case 4:
           System.out.println("Exiting ...");
+          lim =  false;
           break;
         default:
           System.out.println("invalid Choice.Try again");
@@ -129,7 +133,7 @@ class Main{
       }
       
       i++;
-    }while(i<3);
+    }while(i<3 && lim);
 
   }
 }
