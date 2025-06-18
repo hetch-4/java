@@ -205,26 +205,31 @@ class Hostel{
     //}
     //Method to Book a room 
     public void bookRoom(int roomNum,int userId){
-        Room selectedRoom = null;
-        for (Room room:rooms){
-            if(room.getRoomNo() == roomNum){
-                selectedRoom = room;
-                break;
+        try{
+            Room selectedRoom = null;
+            for (Room room:rooms){
+                System.out.println(roomNum);
+                if(room.getRoomNo() == roomNum){
+                    selectedRoom = room;
+                    break;
+                }
             }
-        }
-        if(selectedRoom == null){
-            System.out.println("Room does not exist");
-            return;
-        }
-        if(isRoomAvailable(roomNum)){
-            Booking booking = new Booking(nextBookingId, roomNum,userId);
-            bookings.add(booking);
-            rooms.remove(roomNum);
-            System.out.println("Booking successful, BookingID: "+nextBookingId);
-            booking.displayBooking();
-            nextBookingId++;
-        }else{
-            System.out.println("Room is not available for the selected date.");
+            if(selectedRoom == null){
+                System.out.println("Room does not exist");
+                return;
+            }
+            if(isRoomAvailable(roomNum)){
+                Booking booking = new Booking(nextBookingId, roomNum,userId);
+                bookings.add(booking);
+                rooms.remove(roomNum);
+                System.out.println("Booking successful, BookingID: "+nextBookingId);
+                booking.displayBooking();
+                nextBookingId++;
+            }else{
+                System.out.println("Room is not available for the selected date.");
+            }
+        }catch(Exception e){
+            System.out.println(e);
         }
         
     }
