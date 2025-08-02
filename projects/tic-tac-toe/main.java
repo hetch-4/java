@@ -14,7 +14,7 @@ public class Main{
         while(true){
           //display the board on the terminal
           printBoard();
-          System.out.println("Player {current playe} enter row and column (0-2):");
+          System.out.println("Player "+currentPlayer+" enter row and column (0-2):");
           int row =  scanner.nextInt();
           int col =  scanner.nextInt();
           if(!isValidMove(row, col)){
@@ -24,9 +24,19 @@ public class Main{
 
           board[row][col] = currentPlayer;
 
+          if(isWinner()){
+            printBoard();
+            System.out.println("Player "+currentPlayer+" wins!");
+            break;
+          } else if(isDraw()){
+            printBoard();
+            System.out.println("The game is a draw!");
+            break;
+          };
           
-          break;
+          switchPlayer();
         };
+
         scanner.close();
     };
 
@@ -62,7 +72,7 @@ public class Main{
       for(int i=0; i<3; i++){
         //check rows
         if(board[i][0] == currentPlayer &&
-            board[i][1] == currenPlayer $$
+            board[i][1] == currentPlayer &&
             board[i][2] == currentPlayer){
               return true;
         };
@@ -98,9 +108,10 @@ public class Main{
           if(board[i][j]=='-'){
             return false;
           };
-          return true;
+          //return true;
         };
       };
+      return true;
     };
 
     //function to switch player after each move;
