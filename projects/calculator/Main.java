@@ -82,32 +82,6 @@ class Main{
         }
 
         double result=0.0;
-        switch(operatorString)
-          {
-            case "+":
-              result = op1+op2;
-              break;
-            case "-":
-              result = op1-op2;
-              break;
-            case "*":
-              result = op1*op2;
-              break;
-            case "/":
-              if(op2!=0)
-                {
-                  result = op1/op2;
-                }
-              else
-                {
-                  System.out.println("Invalid operation!");
-                  return;
-                }
-              break;
-            default:
-              System.out.println("Invalid input");
-              break;
-          }
         System.out.println(op1+" "+sign+" "+op2+"="+result);
 
     }
