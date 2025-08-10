@@ -88,15 +88,15 @@ class Main{
               result = op1+op2;
               break;
             case "-":
-              result op1-op2;
+              result = op1-op2;
               break;
             case "*":
-              result op1*op2;
+              result = op1*op2;
               break;
             case "/":
               if(op2!=0)
                 {
-                  result op1/op2;
+                  result = op1/op2;
                 }
               else
                 {
@@ -108,7 +108,7 @@ class Main{
               System.out.println("Invalid input");
               break;
           }
-        System.out.println(op1+" "+sign+" "+op2+"="+);
+        System.out.println(op1+" "+sign+" "+op2+"="+result);
 
     }
 
