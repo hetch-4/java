@@ -14,12 +14,17 @@ public class Main{
     int b = scanner.nextInt();
 
     int c =0;
-    public void findC(int a, int b){
-      return 360 -(a+b);
+    if(a<180 && b<180){
+      System.out.println(findC(a,b));
+    }else{
+      System.out.println("Something went wrong try again");
     }
 
-    System.out.println(findC(a,b));
+  };
 
+
+  public static int findC(int a, int b){
+      return 180 - (a+b);
   };
 
 };
