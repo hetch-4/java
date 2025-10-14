@@ -1,0 +1,11 @@
+//executing a shebang file
+
+//#!/path/to/your/bin/java --source  <version> 17
+
+
+public class HelloJava {
+    public static void main(String[] args){
+        System.out.println("Hello "+ args[0]);
+    }
+}
+
