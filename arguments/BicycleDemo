@@ -1,9 +1,11 @@
+
 // #!/path/to/your/bin/java --source <version> 17
+
 
 public class Main{
     public static void main(String [] args){
         Bicycle bike1 = new Bicycle();
-        Bicycle bike2 = new Bicycle();
+        MountainBike bike2 = new MountainBike();
 
         bike1.changeCadence(20);
         bike1.changeGear(2);
@@ -48,3 +50,17 @@ public class Bicycle{
     }
 }
 
+//inheritence the following bikes inherits from bycicle
+
+public class MountainBike extends Bicycle{
+    String name = "Mountain bike";
+
+}
+
+public class RoadBike extends Bicycle{
+    String name = "Road Bike";
+}
+
+public class TandemBike extends Bicycle{
+    String name = "Tandem Bike";
+}
