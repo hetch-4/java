@@ -1,0 +1,61 @@
+#!/home/jh/Desktop/spring/sts-4.32.0.RELEASE/plugins/org.eclipse.justj.openjdk.hotspot.jre.full.linux.x86_64_21.0.8.v20250724-1412/jre/bin/java --source 17
+
+
+public class Main{
+    public static void main(String [] args){
+      BMXbike bike1 = new BMXbike();
+      
+      bike1.changeCadence(50);
+      bike1.changeGear(4);
+      bike1.speedUp(30);
+      bike1.applyBrakes(5);
+      bike1.printStates();
+    }
+}
+
+
+public interface Bicycle{
+    // wheel rpm
+    void changeCadence(int newValue);
+
+    void changeGear(int newValue);
+
+    void speedUp(int increment);
+
+    void applyBrakes(int decrement);
+}
+
+public class BMXbike implements Bicycle{
+
+    int cadence = 0;
+    int speed = 0;
+    int gear = 0;
+
+    //this class will require the methods frm the interface
+    //all be implemented . compilation will fail without the methods
+
+    public void changeCadence(int newValue){
+        cadence = newValue;
+    }
+
+    public void changeGear(int newGear){
+        gear = newGear;
+    }
+
+    public void speedUp(int increment){
+        speed += increment;
+    }
+
+    public void applyBrakes(int decrement){
+        speed -= decrement;
+    }
+
+    public void printStates(){
+        System.out.println("candence: "+
+        cadence + " speed: "+
+        speed+" gear:"+gear
+        );
+    }
+
+    
+}
