@@ -1,14 +1,16 @@
-//#!/path/to/your/bin/java --source <version> 17
 
 public class Main{
-    public static void main(String [] args){
+    public static void main(String[]args){
       BMXbike bike1 = new BMXbike();
-      
+
+        
       bike1.changeCadence(50);
       bike1.changeGear(4);
       bike1.speedUp(30);
       bike1.applyBrakes(5);
       bike1.printStates();
+      
+    
     }
 }
 
