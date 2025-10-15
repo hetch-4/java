@@ -1,0 +1,80 @@
+#!/home/jh/Desktop/spring/sts-4.32.0.RELEASE/plugins/org.eclipse.justj.openjdk.hotspot.jre.full.linux.x86_64_21.0.8.v20250724-1412/jre/bin/java --source 17
+
+public class Main{
+    public static void main(String [] args){
+
+    }
+}
+
+public interface OperateCar{
+
+    //String name;
+    //String engine;
+    //int year;
+
+    int turn(
+        Direction direction,
+        double radius,
+        double startSpeed,
+        double endSpeed
+    );
+
+    int changeLanes(
+        Direction direction,
+        double startSpeed, 
+        double endSpeed
+    );
+
+    int signalTurn(
+        Direction direction,
+        boolean signalOn
+    );
+
+    int getRadarFront(
+        double distanceToCar,
+        double speedOfCar
+    );
+
+    int getRadarRear(
+        double distanceToCar,
+        double speedOfCar
+    );
+}
+
+public class OperateToyota implements OperateCar{
+    //
+    String name,engine;
+    int year; 
+
+    public int turn(Direction direction,double radius, double startSpeed, double endSpeed){
+        //code to turn in each direction
+        return 1;
+    }
+
+    public int changeLanes(Direction direction, double startSpeed, double endSpeed){
+        //code to change lanes in respectiv direction
+        return 1;
+    }
+
+    public int signalTurn(Direction direction, boolean signalOn){
+        //code to signal for turns
+        return 1;
+    }
+
+    public int getRadarFront(double distanceToCar,double speedOfCar){
+        //code to get radar from front 
+        return 1;
+    }
+
+    public int getRadarRear(double distanceToCar,double speedOfCar){
+        //code to radar from rear end of 
+        return 1;
+    }
+}
+
+public enum Direction{
+    FOWARD,
+    REVERSE,
+    LEFT,
+    RIGHT
+}
