@@ -1,16 +1,34 @@
-#!/home/jh/Desktop/spring/sts-4.32.0.RELEASE/plugins/org.eclipse.justj.openjdk.hotspot.jre.full.linux.x86_64_21.0.8.v20250724-1412/jre/bin/java --source 17
+
 
 public class Main{
     public static void main(String [] args){
+        Direction cir = Direction.LEFT;
+
+        System.out.println("Diirection"+cir);
+
+        OperateToyota premio = new OperateToyota();
+        //turn(direction,radius,startingSpeed,endingSpeed)
+        premio.turn(cir,12,10,100);
+
+        //changelane(direction,startSpeed,endSpeed)
+        premio.changeLanes(cir,50,80);
+        //logic 
+        //endspeed > startSpeed ? changelane : !changelane
+
+        //signalturn(direction,signalon)
+        premio.signalTurn(cir,true);
+
+        //getRadar (distance of car,speed of car)
+
+        premio.getRadarFront(20,60);
+
+        premio.getRadarRear(20,50); 
+
 
     }
 }
 
 public interface OperateCar{
-
-    //String name;
-    //String engine;
-    //int year;
 
     int turn(
         Direction direction,
@@ -48,26 +66,67 @@ public class OperateToyota implements OperateCar{
 
     public int turn(Direction direction,double radius, double startSpeed, double endSpeed){
         //code to turn in each direction
+        switch(direction){
+            case FOWARD:
+            System.out.println("moving forward at speed: " + startSpeed);
+            break;
+
+            case REVERSE:
+            System.out.println("Moving Reverse");
+            break;
+
+            case LEFT:
+            System.out.println("turning Left");
+            break;
+
+        }
+
         return 1;
     }
 
     public int changeLanes(Direction direction, double startSpeed, double endSpeed){
         //code to change lanes in respectiv direction
+        switch(direction){
+            case RIGHT:
+            //car to move right
+            System.out.println("change lane to the right...");
+            break;
+
+            case LEFT:
+            //car move left\
+            System.out.println("change lane to the left...");//get distance from//get distance from the car in front & speed the car in front & speed
+            break;
+
+        
+        }
         return 1;
     }
 
     public int signalTurn(Direction direction, boolean signalOn){
         //code to signal for turns
+        switch(direction){
+            case RIGHT:
+            //car to move right
+            System.out.println("signal right.");
+            break;
+            case LEFT:
+            //car move left\
+            System.out.println("signal left.");
+            break;
+
+        }
         return 1;
     }
 
     public int getRadarFront(double distanceToCar,double speedOfCar){
         //code to get radar from front 
+        //get distance from the car in front & speed
         return 1;
     }
 
     public int getRadarRear(double distanceToCar,double speedOfCar){
         //code to radar from rear end of 
+        //get distance from the car in rear & speed
         return 1;
     }
 }
