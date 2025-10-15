@@ -1,0 +1,50 @@
+// #!/path/to/your/bin/java --source <version> 17
+
+public class Main{
+    public static void main(String [] args){
+        Bicycle bike1 = new Bicycle();
+        Bicycle bike2 = new Bicycle();
+
+        bike1.changeCadence(20);
+        bike1.changeGear(2);
+        bike1.speedUp(10);
+        bike1.applyBrakes(5);
+        bike1.printStates();
+
+        bike2.changeCadence(30);
+        bike2.changeGear(3);
+        bike2.speedUp(20);
+        bike2.applyBrakes(10);
+        bike2.printStates();
+    }
+}
+public class Bicycle{
+    int cadence = 0;
+    int speed = 0;
+    int gear = 1;
+
+    void changeCadence(int newCad){
+        this.cadence = newCad;
+    }
+
+    void changeGear(int newGear){
+        this.gear = newGear;
+    }
+
+    void speedUp(int increment){
+        speed += increment;
+    }
+
+    void applyBrakes(int decrement){
+        speed -= decrement;
+    }
+
+
+    void printStates(){
+        System.out.println("cadence: "+
+        cadence +" speed: "+
+        speed+" gear:"+gear
+        );
+    }
+}
+
