@@ -1,3 +1,4 @@
+#!/home/jh/Desktop/spring/sts-4.32.0.RELEASE/plugins/org.eclipse.justj.openjdk.hotspot.jre.full.linux.x86_64_21.0.8.v20250724-1412/jre/bin/java --source 17
 
 public class Main{
     public static void main(String[]args){

@@ -1,0 +1,20 @@
+body{
+    background: gray;
+}
+
+#container{
+    border: 2px solid black;
+    padding:20px;
+}
+
+#mid-btns{
+    display: flex;
+}
+
+#buttons{
+    width: max-content;
+    border: 2px solid black;
+}
+#car{
+    background: black;
+}

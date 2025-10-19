@@ -1,4 +1,4 @@
-
+#!/home/jh/Desktop/spring/sts-4.32.0.RELEASE/plugins/org.eclipse.justj.openjdk.hotspot.jre.full.linux.x86_64_21.0.8.v20250724-1412/jre/bin/java --source 17
 
 public class Main{
     public static void main(String [] args){
@@ -57,6 +57,12 @@ public interface OperateCar{
         double distanceToCar,
         double speedOfCar
     );
+
+    void accelarate(
+        double startSpeed,
+        double endSpeed,
+        double time 
+    );
 }
 
 public class OperateToyota implements OperateCar{
@@ -86,6 +92,11 @@ public class OperateToyota implements OperateCar{
 
     public int changeLanes(Direction direction, double startSpeed, double endSpeed){
         //code to change lanes in respectiv direction
+        
+        //logic 
+        //endspeed > startSpeed ? changelane : !changelane
+        
+        
         switch(direction){
             case RIGHT:
             //car to move right
@@ -128,6 +139,22 @@ public class OperateToyota implements OperateCar{
         //code to radar from rear end of 
         //get distance from the car in rear & speed
         return 1;
+    }
+
+    public void accelarate(double startSpeed, double endSpeed, double time){
+        //code for the acceleration of car
+        if (endSpeed > startSpeed){
+            double speed = endSpeed - startSpeed;
+            //a = speed * time
+            double acc = speed * time;
+            //a = startspeed * <constant time> t
+            //acc = (dist / time) * secTim 
+            // acc = (dist/t^2) 
+        }else{
+            return;
+        }
+        //return acc;
+        //return 1;
     }
 }
 
