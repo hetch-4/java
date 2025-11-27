@@ -32,10 +32,14 @@ public class Server{
                 }
             }
 
-            System.out.println("Closing connection");
-            //close connection
+
+            if(m.equals("Over")){
+                System.out.println("Closing connection");
+                //close connection
                 s.close();
                 in.close();
+            }
+            
         }catch(IOException i){
             System.out.println(i);
         }
