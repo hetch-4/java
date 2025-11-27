@@ -24,7 +24,7 @@ public class Client{
             Socket socket = new Socket(addr, port);
 
             //set up stream to read from the console
-            BufferedReader consoleIn = new BuffegiredReader(new InputStreamReader(System.in, "UTF-8"));
+            BufferedReader consoleIn = new BufferedReader(new InputStreamReader(System.in, "UTF-8"));
 
             //set upt strem to send messages to the server through the socket
             DataOutputStream out = new DataOutputStream(socket.getOutputStream())
