@@ -8,10 +8,13 @@ public class ServerSide{
             Socket socket = server.accept();
             DataInputStream in = new DataInputStream(socket.getInputStream())
         ){
-            System.out.println("Server started. waiting for client...");
+            System.out.println("Server started. \nwaiting for client...");
             String line;
-            while( !(line=in.readUTF()).equals("End")){
+
+            do{
                 System.out.println("Client: "+line);
+            }while((line=in.readUTF()).equals("End")){
+                System.out.println("Closing connection");
             }
             
         }catch(IOException e){
