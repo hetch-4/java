@@ -22,7 +22,7 @@ public class Server{
             in = new DataInputStream( new BufferedInputStream(s.getInputStream()));
             String m = "";
 
-            //Reads message from clien until "Over"
+            //Reads message from client until "Over"
             while(!m.equals("Over")){
                 try{
                     m = in.readUTF();
@@ -30,12 +30,12 @@ public class Server{
                 }catch(IOException i){
                     System.out.println(i);
                 }
-                System.out.println("Closing connection");
+            }
 
-                //close connection
+            System.out.println("Closing connection");
+            //close connection
                 s.close();
                 in.close();
-            }
         }catch(IOException i){
             System.out.println(i);
         }
